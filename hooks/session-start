@@ -3,6 +3,12 @@
 
 set -euo pipefail
 
+# Skip injection in Spectri-managed repos — Spectri has its own governance
+if [ -d ".spectri" ] || [ -f "SPECTRI.md" ] || [ -f "spectri/SPECTRI.md" ]; then
+    printf '{}\n'
+    exit 0
+fi
+
 # Determine plugin root directory
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLUGIN_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
