@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # Skip injection in Spectri-managed repos — Spectri has its own governance
-if [ -d ".spectri" ] || [ -f "SPECTRI.md" ] || [ -f "spectri/SPECTRI.md" ]; then
+if [ -d ".spectri" ] || [ -f "SPECTRI.md" ]; then
     printf '{}\n'
     exit 0
 fi
